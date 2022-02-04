@@ -1,0 +1,23 @@
+{
+  "name": "training-code",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "The repository for execute tutorial code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vox1oot/training-code.git"
+  },
+  "author": "Vitaliy Morzhov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vox1oot/training-code/issues"
+  },
+  "homepage": "https://github.com/Vox1oot/training-code#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
