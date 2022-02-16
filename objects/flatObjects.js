@@ -15,7 +15,7 @@ const data = {
 const get = (data, keys) => {
   let current = data;
 
-  for (let key of keys) {
+  for (const key of keys) {
     const isProperty = Object.hasOwn(current, key);
 
     if (!isProperty) {
@@ -23,6 +23,7 @@ const get = (data, keys) => {
     }
     current = current[key];
   }
+
   return current;
 };
 console.log(get(data, ['hosts', 1]));
