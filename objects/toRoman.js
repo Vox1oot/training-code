@@ -1,6 +1,3 @@
-/* const arabic = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-const roman = ['I', 'V', 'X', 'L', 'C', 'D', 'M']; */
-
 const setRomans = {
   1: 'I',
   4: 'IV',
@@ -17,17 +14,51 @@ const setRomans = {
   1000: 'M',
 };
 
-const toRoman = (number) => {
-  let result = '';
-  let currentNumber = number;
+const setArabic = {
+  I: 1,
+  IV: 4,
+  V: 5,
+  IX: 9,
+  X: 10,
+  XL: 40,
+  L: 50,
+  XC: 90,
+  C: 100,
+  CD: 400,
+  D: 500,
+  CM: 900,
+  M: 1000,
+};
 
-  while (currentNumber) {
-    if (setRomans[currentNumber]) {
-      result += `${setRomans[currentNumber]}`;
-      currentNumber -= currentNumber;
+const toRoman = (number) => {
+  const keys = Object.keys(setRomans);
+  let index = keys.length - 1;
+  let result = '';
+
+  while (number > 0) {
+    if (number >= keys[index]) {
+      result += setRomans[keys[index]];
+      number -= keys[index];
+    } else {
+      index -= 1;
+    }
+  }
+  return result;
+};
+
+const toArabic = (roman) => {
+  let romanNumber = roman;
+  let result = 0;
+
+  for (let index = 1; index <= romanNumber.length; index += 1) {
+    let currenNumber = romanNumber.substring(0, index);
+
+    if (setArabic[currenNumber]) {
+      result += setArabic[currenNumber];
+      romanNumber = romanNumber.slice(0, index);
     }
   }
   console.log(result);
 };
 
-toRoman(1144);
+toArabic('DLXXV');
